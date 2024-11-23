@@ -3,12 +3,15 @@ import { useLocalStorage } from '@vueuse/core'
 import { stripIndent } from 'common-tags'
 
 export interface SettingsStore {
-  provider?: 'anthropic' | 'openai'
+  provider?: 'anthropic' | 'openai' | 'cohere'
   anthropicKey?: string
   anthropicModel?: 'claude-3-opus-20240229' | 'claude-3-5-sonnet-20241022'
   anthropicEndpointUrl?: string
+  cohereKey?: string
+  cohereModel?: 'command-r-plus' | 'command-r'
   openaiKey?: string
   openaiModel?: 'gpt-4o' | 'gpt-4o-mini' | 'gpt-4-1106-preview'
+  openaiManualModel?: string
   openaiEndpointUrl?: string
   mergePrompt?: string
   cotMergePrompt?: string
@@ -23,9 +26,12 @@ export const settingsDefaults: NonOptional<SettingsStore> = {
   anthropicKey: '',
   anthropicEndpointUrl: 'https://api.anthropic.com/v1/messages',
   anthropicModel: 'claude-3-5-sonnet-20241022',
+  cohereKey: '',
+  cohereModel: 'command-r-plus',
   openaiKey: '',
   openaiEndpointUrl: 'https://api.openai.com/v1/chat/completions',
-  openaiModel: 'gpt-4o',
+  openaiModel: 'gpt-4-1106-preview',
+  openaiManualModel: '',
   cotMergePrompt: stripIndent`
     Your task is to merge two RPG skills into a single skill.
 

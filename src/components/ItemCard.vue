@@ -84,6 +84,40 @@ const anthropic: Adapter = (prompt) =>
     return { status: 'error', error: safeStringify(error) } as AIResult
   })
 
+const cohere: Adapter = (prompt) =>
+  axios.post(
+    "https://api.cohere.com/v1/chat",
+    {
+      model: settings.value.cohereModel,
+      max_tokens: 1000,
+      safety_mode: 'OFF',
+      chat_history: [],
+      message: prompt,
+    },
+    {
+      headers : {
+        'Authorization': 'Bearer ' + settings.value.cohereKey,
+        'content-type': 'application/json',
+      }
+    }
+  ).then((resp): AIResult => {
+    const output: string = resp.data.text
+    console.log(output)
+    const skill = skillWithinOutput(output)
+    if (skill) {
+      return { status: 'success', skill } as const
+    } else {
+      return { status: 'error', error: `Could not parse AI output: ${output}` } as AIResult
+    }
+  })
+  .catch((error): AIResult => {
+    console.log('error:')
+    console.error(error)
+    console.log('--')
+    return { status: 'error', error: safeStringify(error) } as AIResult
+  })
+
+
 const openai: Adapter = (prompt) =>
   axios.post(
     settings.value.openaiEndpointUrl ?? settingsDefaults.openaiEndpointUrl,
@@ -104,7 +138,7 @@ const openai: Adapter = (prompt) =>
       "top_p": 1,
       "frequency_penalty": 0,
       "presence_penalty": 0,
-      "model": settings.value.openaiModel,
+      "model": settings.value.openaiManualModel || settings.value.openaiModel,
     },
     {
       headers: {
@@ -150,7 +184,7 @@ const [, drop] = useDrop(() => ({
       const prompt = basePrompt
         .replace(new RegExp('{{skill1}}', 'g'), `${skill1.title} (${skill1.description})`)
         .replace(new RegExp('{{skill2}}', 'g'), `${skill2.title} (${skill2.description})`);
-      const adapters = {openai,anthropic}
+      const adapters = {openai,anthropic, cohere}
       const cached = cachedCombinationsStore.getCachedCombination(skill1, skill2)
 
       const skillResult = await (

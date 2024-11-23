@@ -61,6 +61,7 @@ defineExpose({ openModal, closeModal })
                   <select v-model="newSettings.provider">
                     <option value="anthropic">anthropic</option>
                     <option value="openai">openai</option>
+                    <option value="cohere">cohere</option>
                   </select>
                 </div>
               </div>
@@ -81,6 +82,19 @@ defineExpose({ openModal, closeModal })
                   </select>
                 </div>
               </div>
+              <div class="fieldgroup" v-if="newSettings.provider === 'cohere'">
+                <div class="field">
+                  <div class="field-label">Cohere Key</div>
+                  <input v-model="newSettings.cohereKey" type="text" placeholder="Your Cohere key here" />
+                </div>
+                <div class="field">
+                  <div class="field-label">Cohere Model</div>
+                  <select v-model="newSettings.cohereModel">
+                    <option value="command-r-plus">command-r-plus</option>
+                    <option value="command-r">command-r</option>
+                  </select>
+                </div>
+              </div>
               <div class="fieldgroup" v-if="newSettings.provider === 'openai'">
                 <div class="field">
                   <div class="field-label">OpenAI Key</div>
@@ -97,6 +111,10 @@ defineExpose({ openModal, closeModal })
                     <option value="gpt-4o-mini">gpt-4o-mini</option>
                     <option value="gpt-4-1106-preview">gpt-4-1106-preview</option>
                   </select>
+                </div>
+                <div class="field">
+                  <div class="field-label">OpenAI Manual Model input (leave empty if not applicable)</div>
+                  <input v-model="newSettings.openaiManualModel" type="text" placeholder="gpt-4-1106-preview" />
                 </div>
               </div>
               <div class="fieldgroup">
