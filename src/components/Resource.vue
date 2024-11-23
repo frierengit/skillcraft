@@ -6,11 +6,12 @@ import ItemCard from "@/components/ItemCard.vue";
 const props = defineProps<{
   emoji: string
   title: string
+  description: string
 }>()
 
 const [collect, drag] = useDrag(() => ({
   type: ItemTypes.BOX,
-  item: { title: props.title, emoji: props.emoji },
+  item: { title: props.title, emoji: props.emoji, description: props.description },
   collect: monitor => ({
     isDragging: monitor.isDragging(),
   }),
@@ -25,7 +26,7 @@ const { isDragging } = toRefs(collect)
       role="Box"
       data-testid="box"
   >
-    <ItemCard :title="title" :emoji="emoji"></ItemCard>
+    <ItemCard :id="title" :title="title" :emoji="emoji" :description="description"></ItemCard>
   </div>
 </template>
 
