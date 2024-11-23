@@ -101,7 +101,7 @@ defineExpose({ openModal, closeModal })
                   <input v-model="newSettings.openaiKey" type="text" placeholder="Your OpenAI key here" />
                 </div>
                 <div class="field">
-                  <div class="field-label">OpenAI Endpoint URL</div>
+                  <div class="field-label">OpenAI Endpoint URL (khanon users, append /chat/completions to the khanon openai url)</div>
                   <input v-model="newSettings.openaiEndpointUrl" type="text" placeholder="https://api.openai.com/v1/chat/completions" />
                 </div>
                 <div class="field">
