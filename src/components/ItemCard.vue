@@ -174,9 +174,17 @@ const [, drop] = useDrop(() => ({
       if(droppedId){
         removeBox(droppedId);
       }
+      if (!boxes.value[props.id]) {
+        window.alert('Move skills to the other pane to merge them!')
+        return
+      }
       boxes.value[props.id].loading = true
       console.log({skill1, skill2, boxes: boxes.value, droppedId})
       if (!skill1 || !skill2) {
+        window.alert('An unexpected bug occurred.')
+        return
+      }
+      if (!skill1.title || !skill2.title) {
         window.alert('An unexpected bug occurred.')
         return
       }
