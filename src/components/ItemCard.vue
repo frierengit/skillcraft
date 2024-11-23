@@ -201,6 +201,7 @@ const [, drop] = useDrop(() => ({
       )
 
       if (skillResult?.status === 'error' || skillResult === undefined) {
+        boxes.value[props.id].loading = false
         window.alert((skillResult as any)?.error ?? "An unexpected error occurred (skillResult is undefined).")
         return
       } else {
