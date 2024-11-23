@@ -178,16 +178,15 @@ const [, drop] = useDrop(() => ({
         window.alert('Move skills to the other pane to merge them!')
         return
       }
-      boxes.value[props.id].loading = true
-      console.log({skill1, skill2, boxes: boxes.value, droppedId})
       if (!skill1 || !skill2) {
-        window.alert('An unexpected bug occurred.')
+        window.alert('Move skills to the other pane to merge them!')
         return
       }
       if (!skill1.title || !skill2.title) {
-        window.alert('An unexpected bug occurred.')
+        window.alert('Move skills to the other pane to merge them!')
         return
       }
+      boxes.value[props.id].loading = true
       const basePrompt = settings.value.mergePrompt ?? ''
       const prompt = basePrompt
         .replace(new RegExp('{{skill1}}', 'g'), `${skill1.title} (${skill1.description})`)
