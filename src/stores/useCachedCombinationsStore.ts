@@ -18,6 +18,9 @@ export const useCachedCombinationsStore = defineStore('cachedcombinations', () =
   )
 
   function addCachedCombination(skill1: Skill, skill2: Skill, result: Skill) {
+    if (!skill1 || !skill2) {
+      return
+    }
     const [orderedSkill1, orderedSkill2] = [skill1, skill2].sort((a, b) =>
       a.title.localeCompare(b.title)
     )
@@ -26,6 +29,9 @@ export const useCachedCombinationsStore = defineStore('cachedcombinations', () =
   }
 
   function getCachedCombination(skill1: Skill, skill2: Skill): Skill | undefined {
+    if (!skill1 || !skill2) {
+      return
+    }
     const [orderedSkill1, orderedSkill2] = [skill1, skill2].sort((a, b) =>
       a.title.localeCompare(b.title)
     )
