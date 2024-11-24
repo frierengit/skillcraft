@@ -6,6 +6,7 @@ import type { SettingsStore } from '@/stores/useSettingsStore';
 import { useCachedCombinationsStore } from '@/stores/useCachedCombinationsStore';
 import { useResourcesStore } from '@/stores/useResourcesStore';
 import { useBoxesStore } from '@/stores/useBoxesStore';
+import { stripIndent } from 'common-tags'
 
 const store = useSettingsStore();
 const resourcesStore = useResourcesStore();
@@ -39,6 +40,32 @@ function updateSettings() {
   store.updateSettings(() => newSettings.value);
   closeModal();
 }
+
+const chuuni = stripIndent`
+  Your task is to merge two RPG skills into a single skill.
+
+  In order to programmatically evaluate your response, please include the new skill's name inside name XML tags, the new skill's description inside description tags, and the new skill's emoji inside emoji tags. The description should be one concise sentence.
+
+  Try to find an answer that strikes the best balance of satisfyingly including elements of both powers, thinking outside the box/obliquely about how they could combine, originality, and fun. Try to keep the new power's powerlevel roughly in line with the two original powers, or slightly more powerful. Above all, maximise [CHUNNI]. Kick normalcy to the curb and embrace maximum [CHUNNI]. Take heavy inspiration from anime references, memes, books, pop culture, current day events, classic literature, fairytales and an eclectic mix of media. When it's possible to reference something in the title, do it!
+  For example:
+  Plane + Tower = title with a 9/11 reference.
+
+  Be very specific when including numbers, limitations, specifications and skill usage. If necessary, add limitations. Here is an example of how I want you to do it.:
+
+  Me: Skill 1: Bug Control (takes control of all insects in a 50-yard radius)
+  Skill 2: Fireball (launches a large fireball the size of a Douglas Fir)
+  You: <name>Chittering Conflagration: Horus' Wrath</name> <description>Detects insects within a 20-yard radius. The user can project massive flames from his left hand, corresponding to the number of insects he sacrifices. The rarer the insect, the more powerful the flames. Weaknesses: The user MUST use his left hand to sacrifice the insects.</description> <emoji>:boom:</emoji>
+
+  ***
+  Titles must be somewhat convoluted, chunni style, but succinct. Aim for less than 30 words.
+  IMPORTANT: If one (and only one) of the skills says that it alters other skills in some way, then instead of combining the two skills, you should apply the described alteration to the other skill.
+
+  ***
+
+  Here are the two skills I want you to merge:
+  Skill 1: {{skill1}}
+  Skill 2: {{skill2}}
+`
 
 defineExpose({ openModal, closeModal })
 </script>
@@ -124,7 +151,8 @@ defineExpose({ openModal, closeModal })
                       <div>Skill merging prompt</div>
                       <div class="flex gap-1">
                         <button type="button" @click="newSettings.mergePrompt = settingsDefaults.mergePrompt">Insert default</button>
-                        <button type="button" @click="newSettings.mergePrompt = settingsDefaults.cotMergePrompt">Insert CoT default</button>
+                        <button type="button" @click="newSettings.mergePrompt = settingsDefaults.cotMergePrompt">Insert CoT</button>
+                        <button type="button" @click="newSettings.mergePrompt = chuuni">Insert Chuuni</button>
                       </div>
                     </div>
                   </div>
