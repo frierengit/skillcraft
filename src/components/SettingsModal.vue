@@ -71,7 +71,7 @@ defineExpose({ openModal, closeModal })
                   <input v-model="newSettings.anthropicKey" type="text" placeholder="Your Anthropic key here" />
                 </div>
                 <div class="field">
-                  <div class="field-label">Anthropic Endpoint URL</div>
+                  <div class="field-label">Anthropic Endpoint URL (khanon users, append /messages to the khanon anthropic url)</div>
                   <input v-model="newSettings.anthropicEndpointUrl" type="text" placeholder="https://api.anthropic.com/v1/messages" />
                 </div>
                 <div class="field">
