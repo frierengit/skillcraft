@@ -46,7 +46,7 @@ const chuuni = stripIndent`
 
   In order to programmatically evaluate your response, please include the new skill's name inside name XML tags, the new skill's description inside description tags, and the new skill's emoji inside emoji tags. The description should be one concise sentence.
 
-  Try to find an answer that strikes the best balance of satisfyingly including elements of both powers, thinking outside the box/obliquely about how they could combine, originality, and fun. Try to keep the new power's powerlevel roughly in line with the two original powers, or slightly more powerful. Above all, maximise [CHUNNI]. Kick normalcy to the curb and embrace maximum [CHUNNI]. Take heavy inspiration from anime references, memes, books, pop culture, current day events, classic literature, fairytales and an eclectic mix of media. When it's possible to reference something in the title, do it!
+  Try to find an answer that strikes the best balance of satisfyingly including elements of both powers, thinking outside the box/obliquely about how they could combine, originality, and fun. Try to keep the new power's powerlevel roughly in line with the two original powers, or slightly more powerful. Above all, maximise [CHUNNI]. Kick normalcy to the curb and embrace maximum [CHUNNI]. Take inspiration from every single thing, anime references, memes, books, pop culture, current day events, classic literature, fairytales and an eclectic mix of media. When it's possible to reference something in the title, do it!
   For example:
   Plane + Tower = title with a 9/11 reference.
 
@@ -57,11 +57,10 @@ const chuuni = stripIndent`
   You: <name>Chittering Conflagration: Horus' Wrath</name> <description>Detects insects within a 20-yard radius. The user can project massive flames from his left hand, corresponding to the number of insects he sacrifices. The rarer the insect, the more powerful the flames. Weaknesses: The user MUST use his left hand to sacrifice the insects.</description> <emoji>:boom:</emoji>
 
   ***
-  Titles must be somewhat convoluted, chunni style, but succinct. Aim for less than 30 words.
+  Titles must be somewhat convoluted, chunni style, but succinct. Aim for less than 30 words. Maximise the engrish, if possible. Abilities should be comedically engrish at times, just like how the japanese do it! Ultra SOVL!
   IMPORTANT: If one (and only one) of the skills says that it alters other skills in some way, then instead of combining the two skills, you should apply the described alteration to the other skill.
 
   ***
-
   Here are the two skills I want you to merge:
   Skill 1: {{skill1}}
   Skill 2: {{skill2}}
