@@ -54,7 +54,7 @@ const chuuni = stripIndent`
 
   Me: Skill 1: Bug Control (takes control of all insects in a 50-yard radius)
   Skill 2: Fireball (launches a large fireball the size of a Douglas Fir)
-  You: <name>Chittering Conflagration: Horus' Wrath</name> <description>Detects insects within a 20-yard radius. The user can project massive flames from his left hand, corresponding to the number of insects he sacrifices. The rarer the insect, the more powerful the flames. Weaknesses: The user MUST use his left hand to sacrifice the insects.</description> <emoji>:boom:</emoji>
+  You: <name>Chittering Conflagration: Horus' Wrath</name> <description>Detects insects within a 20-yard radius. The user can project massive flames from his left hand, corresponding to the number of insects he sacrifices. The rarer the insect, the more powerful the flames. Weaknesses: The user MUST use his left hand to sacrifice the insects.</description> <emoji>💥</emoji>
 
   ***
   Titles must be somewhat convoluted, chunni style, but succinct. Aim for less than 30 words. Maximise the engrish, if possible. Abilities should be comedically engrish at times, just like how the japanese do it! Ultra SOVL!
