@@ -226,12 +226,12 @@ const [, drop] = useDrop(() => ({
 <template>
   <div
     :ref="drop"
-    class="space-x-1.5 px-3 py-1 border-gray-200 bg-white shadow hover:bg-gray-100 cursor-pointer transition inline-block font-medium border rounded-lg"
+    class="space-x-1.5 px-3 py-1 border-gray-200 bg-white shadow hover:bg-gray-100 cursor-pointer transition inline-block font-medium border rounded-lg max-w-[250px]"
     style="box-shadow: 0 0 5px 0px rgba(0, 0, 0, .8);"
   >
     <span>{{ emoji }}</span>
     <span class="font-semibold">{{ title }}</span>
-    <div class="text-[0.75em] max-w-[200px]">{{ description }}</div>
+    <div class="text-[0.75em]">{{ description }}</div>
   </div>
 
 </template>
